@@ -1,0 +1,17 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP DATABASE IF EXISTS team9_projectdb  CASCADE;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE DATABASE team9_projectdb LOCATIO N "project/hive/warehouse";
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team9_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- CREATE EXTERNAL TABLE CTR STORED AS  AVRO LOCATION 'project/warehouse/ctr' TBLPROPERTIES ('avro.schema.url'='project/wareho use/avsc/ctr.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- SELECT * FROM CTR;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.exec.dynamic.partition=true;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.exec.dynamic.partition.mode=no nstrict;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE ctr_part(session_ id int, DateTime TIMESTAMP, user_id int, campaign_id int, webpage_id int, product_cate gory_1 int, product_category_2 FLOAT, user_group_id FLOAT, gender VARCHAR(6), age_leve l FLOAT, user_depth FLOAT, city_development_index FLOAT, var_1 int, is_click int) PART ITIONED BY (product CHAR(1)) STORED AS AVRO LOCATION 'project/hive/warehouse/ctr_part'  TBLPROPERTIES ('AVRO.COMPRESS'='SNAPPY');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO ctr_part
+. . . . . . . . . . . . . . . . . . . . . . .> PARTITION (product)
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT session_id, from_unixtime(FLOOR( CAST(DateTime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') as DateTime, user_id, campa ign_id, webpage_id, product_category_1, product_category_2, user_group_id, gender, age _level, user_depth, city_development_index, var_1, is_click, product
+. . . . . . . . . . . . . . . . . . . . . . .> FROM CTR;

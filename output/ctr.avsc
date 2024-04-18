@@ -1,0 +1,97 @@
+{
+  "type" : "record",
+  "name" : "ctr",
+  "doc" : "Sqoop import of ctr",
+  "fields" : [ {
+    "name" : "session_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "session_id",
+    "sqlType" : "4"
+  }, {
+    "name" : "datetime",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "datetime",
+    "sqlType" : "93"
+  }, {
+    "name" : "user_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "user_id",
+    "sqlType" : "4"
+  }, {
+    "name" : "product",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "product",
+    "sqlType" : "1"
+  }, {
+    "name" : "campaign_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "campaign_id",
+    "sqlType" : "4"
+  }, {
+    "name" : "webpage_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "webpage_id",
+    "sqlType" : "4"
+  }, {
+    "name" : "product_category_1",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "product_category_1",
+    "sqlType" : "4"
+  }, {
+    "name" : "product_category_2",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "product_category_2",
+    "sqlType" : "8"
+  }, {
+    "name" : "user_group_id",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "user_group_id",
+    "sqlType" : "8"
+  }, {
+    "name" : "gender",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "gender",
+    "sqlType" : "12"
+  }, {
+    "name" : "age_level",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "age_level",
+    "sqlType" : "8"
+  }, {
+    "name" : "user_depth",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "user_depth",
+    "sqlType" : "8"
+  }, {
+    "name" : "city_development_index",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "city_development_index",
+    "sqlType" : "8"
+  }, {
+    "name" : "var_1",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "var_1",
+    "sqlType" : "4"
+  }, {
+    "name" : "is_click",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "is_click",
+    "sqlType" : "4"
+  } ],
+  "tableName" : "ctr"
+}
