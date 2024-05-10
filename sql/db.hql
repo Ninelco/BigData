@@ -15,3 +15,5 @@ INSERT INTO ctr_part
 PARTITION (product)
 SELECT session_id, from_unixtime(FLOOR(CAST(DateTime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') as DateTime, user_id, campaign_id, webpage_id, product_category_1, product_category_2, user_group_id, gender, age_level, user_depth, city_development_index, var_1, is_click, product
 FROM CTR;
+
+DROP TABLE CTR;

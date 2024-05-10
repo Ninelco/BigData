@@ -1,0 +1,1 @@
+beeline> DROP DATABASE IF EXISTS team9_projectdb CASCADE;
