@@ -131,7 +131,7 @@ ctr1_temp = ctr1_temp.select(["is_click", "features"]).withColumnRenamed("is_cli
 
 
 
-#  split the data into 60% training and 40% test (it is not stratified)
+#  split the data into 70% training and 30% test (it is not stratified)
 train_data = ctr1_temp.limit(int(ctr1_temp.count() * 0.7))
 test_data = ctr1_temp.subtract(train_data)
 

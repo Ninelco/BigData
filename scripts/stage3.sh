@@ -1,6 +1,6 @@
 #!/bin/bash
 
-spark-submit --master yarn scripts/model.py &> output/results.txt
+spark-submit --master yarn scripts/model.py
 
 hdfs dfs -cat project/data/train/*.json > data/train.json
 hdfs dfs -cat project/data/test/*.json > data/test.json
